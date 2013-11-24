@@ -11,6 +11,14 @@ class ModeA
     # 頭文字のLとXの置き換え
     def reWriteInitialLX(tape)
         ret_tape = ""
+        if tape =~ /^X/
+            ret_tape = tape.sub(/^X/, "L")
+        elsif tape =~ /^L/
+            ret_tape = tape.sub(/^L/, "X")
+        else
+            ret_tape = tape
+        end
+        return ret_tape
     end
 
     # コピー
@@ -35,5 +43,6 @@ class ModeA
 
     # テープ追加
     def addTape(tape, cp_tape)
+        ret_tape = tape + cp_tape
     end
 end
